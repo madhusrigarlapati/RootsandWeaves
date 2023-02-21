@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-size: cover;
+            border:solid 1px darkgreen;
+            /* background-image: linear-gradient(45deg,green,lightgreen); */
+            
+        }
+    #addedprods{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width:90%;
+        background-color: cornsilk;
+    }
+    .prods{
+        /* width:100%; */
+        display: grid;
+        word-break: keep-all;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        align-items: center;
+        /* padding-left: 20px;
+        padding-right: 20px; */
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    #btn{
+        background-color:#687be9;
+        border: #3fd557;
+    }
+    button{
+        border-radius: 25px;
+        width:130px; 
+        height:40px;
+    }
+    .one{
+        border:solid 1px black;
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Customer Details </h1>
+    <h2><%= Name %></h2>
+    <h2> PhoneNumber:<%=phoneNo %></h2>
+    <h2> Address:<%=address %></h2>
+
+    <hr><br><br>
+
+
+    <div class="main">
+        <div id="addedprods">
+            <div id="${c}" class="prods" >
+                <div > Retailer name</div>
+                <div > Product name</div>
+                <div > image link</div>
+                <div>Quantity</div>
+                <div>price</div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <table>
+        <% if(l2.length!=0){%>
+            <% l2.forEach(function(l2) { %>
+                <tr>
+                <td><%=l2.name%></td>
+                <td><%=l2.grname.l.prodname%></td>
+                <td><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></td>
+                <td><%=l2.grname.l.quantity%></td>
+                <td><%=l2.grname.l.price%></td>
+                </tr>
+            <% }); %>
+        <%}%>
+    </table>
+
+    
+
+</body>
+</html>

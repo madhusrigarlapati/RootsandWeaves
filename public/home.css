@@ -1,0 +1,134 @@
+body{
+  font-family: Tahoma, sans-serif;
+}.nav{
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    height: 70px;
+    align-items: center;
+}
+.bt1{
+  border:none;
+  background-color: white;
+  font-weight: bold;
+  font-size: medium;
+  height: 30px;
+}
+.bt1:hover{
+  background-color: #12AD2B;
+}
+.homepage,img{
+    width: 100%;
+    height: 520px;
+}
+.centered button{
+  background-color: #12AD2B;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+  }
+  .about{
+    display: grid;
+    grid-template-areas: 
+    'a2 a1 ';
+    grid-gap: 20px;
+    padding: 30px;
+    
+  }
+  .a1{
+    grid-area: a1;
+    padding-top: 70px;
+    
+  }
+  .a2{
+    grid-area: a2;
+  }
+  .a2 img{
+    border-radius: 50%;
+  }
+  .hap-cus{
+    display: grid;
+    grid-template-areas: 
+    'hap1 hap2 hap3';
+    grid-gap: 20px;
+    padding: 50px 150px 150px 150px;
+  }
+  .hap1{
+    grid-area: hap1;
+    border-color: #12AD2B;
+    border-style: solid;
+    text-align: center;
+    padding: 15px;
+    border-radius: 70px;
+  }
+  .hap2{
+    grid-area: hap2;
+    border-color: #12AD2B;
+    border-style: solid;
+    text-align: center;
+    padding: 15px;
+    border-radius: 70px;
+  }
+  .hap3{
+    grid-area: hap3;
+    border-color: #12AD2B;
+    border-style: solid;
+    text-align: center;
+    padding: 15px;
+    border-radius: 70px;
+  }
+.contact-us{
+    border-style: solid;
+    border-color: #12AD2B;
+    text-align: center;
+    padding: 35px;
+    margin:  20px 130px 130px 130px;
+    display: grid;
+    grid-template-areas: 
+    'con1 con2';
+    
+  }
+  .con1{
+    grid-area: con1;
+    align-self: center;
+  }
+  .con2{
+    grid-area: con2;
+    text-align: left;
+    padding-left: 150px;
+  }
+.nav p:hover{
+    background-color: #12AD2B;
+    padding: 10px;
+    color: white;
+}
+.hap1:hover{
+    padding: 50px;
+    background-color: #12AD2B;
+    color: white;
+}
+.hap2:hover{
+    padding: 50px;
+    background-color: #12AD2B;
+    color: white;
+}
+.hap3:hover{
+    padding: 30px;
+    background-color: #12AD2B;
+    color: white;
+}
+.con1 button:hover{
+  background-color: #12AD2B;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+   

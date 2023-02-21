@@ -1,0 +1,193 @@
+body{
+    font-family: Tahoma, sans-serif;
+  }
+  .nav{
+      display: flex;
+      justify-content: space-around;
+      font-weight: bold;
+      height: 70px;
+      align-items: center;
+      background-color:brown;
+      color: white;
+      
+  }
+  .busi{
+    display: grid;
+    grid-template-areas: 
+    'farm handl pot';
+    padding:20px;
+    justify-content: space-around;
+  }
+.farm{
+  grid-area: farm;
+  border-color: brown;
+  border-style: solid;
+  padding:20px;
+  border-radius: 35px;
+  
+}
+.handl{
+  grid-area: handl;
+  border-color: brown;
+  border-style: solid;
+  padding:20px;
+  border-radius: 35px
+}
+.pot{
+  grid-area: pot;
+  border-color: brown;
+  border-style: solid;
+  padding:20px;
+  border-radius: 35px
+}
+.btns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.farm img{
+  border-radius: 20px;
+}
+.handl img{
+  border-radius: 20px;
+}
+.pot img{
+  border-radius: 20px;
+}
+.ab{
+  background-color:rgb(251, 212, 161);
+  padding: 20px;
+  border-radius: 20px;
+}
+.hap-cus{
+  display: grid;
+  grid-template-areas: 
+  'hap1 hap2 hap3';
+  grid-gap: 20px;
+  padding: 50px 150px 150px 150px;
+}
+.hap1{
+  grid-area: hap1;
+  border-color: brown;
+  border-style: solid;
+  text-align: center;
+  padding: 15px;
+  border-radius: 70px;
+}
+.hap2{
+  grid-area: hap2;
+  border-color: brown;
+  border-style: solid;
+  text-align: center;
+  padding: 15px;
+  border-radius: 70px;
+}
+.hap3{
+  grid-area: hap3;
+  border-color: brown;
+  border-style: solid;
+  text-align: center;
+  padding: 15px;
+  border-radius: 70px;
+}
+.contact-us{
+  border-style: solid;
+  border-color: brown;
+  text-align: center;
+  padding: 35px;
+  margin:  20px 130px 130px 130px;
+  display: grid;
+  grid-template-areas: 
+  'con1 con2';
+  
+}
+.con1{
+  grid-area: con1;
+  align-self: center;
+}
+.con2{
+  grid-area: con2;
+  text-align: left;
+  padding-left: 150px;
+}
+.nav p:hover{
+  color: brown;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.hap1:hover{
+  padding: 50px;
+  background-color: brown;
+  color: white;
+  
+}
+.hap2:hover{
+  padding: 50px;
+  background-color: brown;
+  color: white;
+}
+.hap3:hover{
+  padding: 30px;
+  background-color: brown;
+  color: white;
+  
+}
+.con1 button:hover{
+background-color: brown;
+color: white;
+border: none;
+font-weight: bold;
+}
+.farm:hover{
+  background-color: brown;
+  color: white;
+  padding: 30px;
+}
+.handl:hover{
+  background-color: brown;
+  color: white;
+  padding: 30px;
+}
+.pot:hover{
+  background-color: brown;
+  color: white;
+  padding: 30px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.copy{grid-area: copy;
+  padding-top: 30px;
+  padding-bottom: 80px;
+  padding-left:90px; }
+.icons{grid-area: icons;
+   padding-top: 30px;
+   padding-bottom: 80px;
+   }
+.footer{
+display: grid;
+grid-template-areas: 
+'copy copy copy icons';
+background-color: brown;
+height: 80px;
+color: white;
+
+
+}
+.fa-instagram {  
+ 
+color: white;  
+}  
+.fa-facebook {  
+
+color: white;  
+}  
+.fa-twitter {  
+ 
+color: white;  
+}  

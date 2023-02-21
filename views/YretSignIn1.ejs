@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-size: cover;
+            border:solid 1px darkgreen;
+            background-image: linear-gradient(45deg,green,lightgreen);
+            
+        }
+    #addedprods{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width:90%;
+        background-color: cornsilk;
+    }
+    .prods{
+        /* width:100%; */
+        display: grid;
+        word-break: keep-all;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        align-items: center;
+        /* padding-left: 20px;
+        padding-right: 20px; */
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    #btn{
+        background-color:#687be9;
+        border: #3fd557;
+    }
+    button{
+        border-radius: 25px;
+        width:130px; 
+        height:40px;
+    }
+    .one{
+        border:solid 1px black;
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+    <h1> Handloom Details </h1>
+    <h2> Name:<%= Name%></h2>
+    <h2> PhoneNumber:<%=phoneNo %></h2>
+    <h2> Farm address:<%=farmaddress %></h2>
+
+<br><br>
+    
+    
+    <br>
+    <br>
+    <div class="one">
+    <hr>
+    <form action="/YretSignIn2" method="post" align="center">
+        <input name="f1name" type="text" value="<%=Name%>" style="display:none;" >&nbsp;&nbsp;
+        Enter product name: <input name="gname" type="text" placeholder="Enter your name" required style="height: 30px;"/>&nbsp;&nbsp;
+        Link of the product image its optional:<input name="photo" type="text"style="height: 30px;"/>&nbsp;&nbsp;
+        Quantity in KG's:<input name="quant" type="number" placeholder="in KG's" style="height: 30px;" required/>&nbsp;&nbsp;
+        Price :<input name="price" type="number" placeholder="in rupees per kg" style="height: 30px;" required/><br>
+        <button type="submit" id="btn" onclick="addd()" style="align-self: center; margin-top: 20px;">add</button><br><br><br>
+        <hr>
+        
+    </form>
+
+    <form action="/delete" method="post" align="center">
+        <input name="f2name" type="text" value="<%=Name%>" style="display:none">
+        <h2> To remove the products please enter the name of the product and click on Delete button.</h2>
+        <input name="delname" type="text" placeholder="name of the product to remove" required/>
+        <button type="submit">Delete</button><br><br><br>
+    </form>
+
+    <div class="main">
+        <div id="addedprods">
+            <div id="${c}" class="prods" >
+                <div > Product name</div>
+                <div > image link</div>
+                <div>Quantity</div>
+                <div>price</div>
+                
+            </div>
+        </div>
+    </div>
+
+    <% if(l2.length==0){%>
+        <h2> no products added</h2>
+    <%}%>
+    
+    <table id="tableName">
+        
+    <% if(l2.length!=0){%>
+        <% l2.forEach(function(l2) { %>
+            <tr id="<%=l2.grname.l.prodname%>">
+            <td><%=l2.grname.l.prodname%></td>
+            <td><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></td>
+            <td><%=l2.grname.l.quantity%></td>
+            <td><%=l2.grname.l.price%></td>
+
+            </tr>
+        <% }); %>
+    <%}%>
+    </table>
+    <!-- <% if(l2.length!=0){%>
+        <% l2.forEach(function(l2) { %>
+<form >
+    <input name="name1" id="name2"value="<%=l2.grname.l.prodname%>" type="text" style="display: none;">
+    <input name="link1" value="<%=l2.grname.l.link%>" type="text" style="display: none;">
+    <input name="quant1" value="<%=l2.grname.l.quantity%>" type="text" style="display: none;">
+    <input name="price" value="<%=l2.grname.l.price%>" type="text" style="display: none;">
+    <div class="btn2"><button onClick="delfun(${c})">delete</button></div>
+</form>
+<% }); %>
+    <%}%> -->
+
+    </div>
+    
+</body>
+<script type="text/javascript">
+//     var ids = [];
+// var children = document.getElementById("tr").children; //get container element children.
+// for (var i = 0, len = children.length ; i < len; i++) {
+//     children[i].className = 'new-class'; //change child class name.
+//     ids.push(children[i].id); //get child id.
+// // }
+// var tRow = document.getElementById("tableName").getElementsByTagName("tr");
+
+// for(var i = 0; i < tRow.length; i++){
+    
+//     tRow[i].className =i
+// }
+// for(var i = 0; i < tRow.length; i++){
+
+// }
+
+</script>
+</html>
