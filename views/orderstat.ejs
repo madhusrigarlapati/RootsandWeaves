@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-size: cover;
+            border:solid 5px darkgreen;
+            margin: 20px;
+            border-radius: 20px;
+            background-color: rgb(178, 240, 193);
+            
+        }
+        #tableName{
+            width: 100%;
+        }
+    .prods{
+        width:100%; 
+        display: flex;
+        word-break: keep-all;
+        flex-direction: row;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content:space-evenly; 
+        background-color: green;
+        color: white;
+    }
+    #btn{
+        background-color:green;
+        border: #3fd557;
+        color: white;
+    }
+    button{
+        border-radius: 25px;
+        width:130px; 
+        height:40px;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>your accepted orders</h1>
+    <div class="prods">
+            
+        <b>Product name</b>
+        <b>Quantity</b>
+        <b>retailer name</b>
+        <b>status</b>
+    </div>
+    <div id="tableName">
+        <% if(accc.length==0){%>
+            <h3 align="center">no orders accepted</h3>
+        <%}%>
+
+        <% if(accc.length!=0){%>
+            <% accc.forEach(function(accc) { %>
+                <div style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;">
+                <div><%=accc.prodName%></div>
+                <div><%=accc.quantit%></div>
+                <div><%=accc.retName%></div>
+                <div>Accepted</div>
+                </div>
+            <% }); %>
+        <%}%>
+            </div><br>
+
+            <h1>your rejected orders</h1>
+            <div class="prods">
+            
+                <b>Product name</b>
+                <b>Quantity</b>
+                <b>retailer name</b>
+                <b>status</b>
+            </div>
+            <div id="tableName">
+                <% if(rejj.length==0){%>
+                    <h3 align="center">no orders rejected</h3>
+                <%}%>
+                <% if(rejj.length!=0){%>
+                    <% rejj.forEach(function(rejj) { %>
+                        <div  style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;">
+                        <div><%=rejj.prodName%></div>
+                        <div><%=rejj.quantit%></div>
+                        <div><%=rejj.retName%></div>
+                        <div>rejected due to less quantity</div>
+                        </div>
+                    <% }); %>
+                <%}%>
+            </div>
+
+            <h1>your pending orders</h1>
+            <div class="prods">
+            
+                <b>Product name</b>
+                <b>Quantity</b>
+                <b>retailer name</b>
+                <b>status</b>
+            </div>
+            <div id="tableName">
+                <% if(pend.length==0){%>
+                    <h3 align="center">no orders</h3>
+                <%}%>
+                <% if(pend.length!=0){%>
+                    <% pend.forEach(function(pend) { %>
+                        <div  style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;">
+                        <div><%=pend.prodName%></div>
+                        <div><%=pend.quantit%></div>
+                        <div><%=pend.retName%></div>
+                        <div>pending</div>
+                        </div>
+                    <% }); %>
+                <%}%>
+
+            </div>
+
+</body>
+</html>

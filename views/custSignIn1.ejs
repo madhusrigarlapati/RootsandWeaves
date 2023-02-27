@@ -12,34 +12,32 @@
             justify-content: center;
             flex-direction: column;
             background-size: cover;
-            border:solid 1px darkgreen;
+            border:solid 5px navy;
+            margin: 20px;
+            border-radius: 20px;
+            background-color: skyblue;
             /* background-image: linear-gradient(45deg,green,lightgreen); */
             
         }
-    #addedprods{
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width:90%;
-        background-color: cornsilk;
-    }
+
     .prods{
-        /* width:100%; */
-        display: grid;
+        width:100%; 
+        display: flex;
         word-break: keep-all;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        flex-direction: row;
         padding-top: 10px;
         padding-bottom: 10px;
-        align-items: center;
-        /* padding-left: 20px;
-        padding-right: 20px; */
-        flex-direction: row;
-        justify-content: space-evenly;
+        justify-content:space-evenly; 
+        background-color: navy;
+        color: white;
+    }
+    #tableName{
+        width: 100%;
     }
     #btn{
-        background-color:#687be9;
-        border: #3fd557;
+        background-color:navy;
+        border: navy;
+        color: white;
     }
     button{
         border-radius: 25px;
@@ -47,49 +45,93 @@
         height:40px;
     }
     .one{
-        border:solid 1px black;
-        padding: 20px;
+        display: grid;
+        grid-template-areas: 
+        'fdw fdm';
+    }
+    .fdw{
+        grid-area: fdw;
+        padding: 50px;
+    }
+    .fdm{
+        grid-area: fdm;
+        padding: 50px;
+        padding-top: 70px;
+    }
+    input::placeholder {
+                 /* Firefox, Chrome, Opera */
+                 text-align: center;
     }
     </style>
 </head>
 <body>
+    <div class="one">
+        <div class="fdw">
+            <img src="custo.webp" style="border-radius: 20px;">
+        </div>
+        <div class="fdm">
     <h1>Customer Details </h1>
     <h2><%= Name %></h2>
     <h2> PhoneNumber:<%=phoneNo %></h2>
     <h2> Address:<%=address %></h2>
-
+            </div>
     <hr><br><br>
 
-
-    <div class="main">
-        <div id="addedprods">
-            <div id="${c}" class="prods" >
-                <div > Retailer name</div>
-                <div > Product name</div>
-                <div > image link</div>
-                <div>Quantity</div>
-                <div>price</div>
+</div>
+    <div style="width: 100%;">
+    
+            <div class="prods" >
+                <b> Retailer name</b>
+                <b> Product name</b>
+                <b> image link</b>
+                <b>Quantity</b>
+                <b>price</b>
                 
             </div>
         </div>
-    </div>
+    
 
 
-    <table>
+    <div id="tableName">
         <% if(l2.length!=0){%>
             <% l2.forEach(function(l2) { %>
-                <tr>
-                <td><%=l2.name%></td>
-                <td><%=l2.grname.l.prodname%></td>
-                <td><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></td>
-                <td><%=l2.grname.l.quantity%></td>
-                <td><%=l2.grname.l.price%></td>
-                </tr>
+                
+                <div style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;"><%=l2.name%>
+                <div><%=l2.grname.l.prodname%></div>
+                <div><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></div>
+                <div><%=l2.grname.l.quantity%></div>
+                <div><%=l2.grname.l.price%></div>
+                </div>
             <% }); %>
         <%}%>
-    </table>
+        <hr style="border:solid 1px;">
 
-    
+            </div>
+<br><br>
+    <div>
+        
+        <h1 style="text-align: center;">Order any Product </h1>
+        <form action="/order" method="post" align="center">
+            <input name="cus" value="<%= Name %>" type="text" style="display: none;">
+            <b style="font-size: 20px;">Enter the product name : <input name="pronam" type="text" placeholder="product name" style="height: 30px;border-radius: 10px;" required/><br><br>
+                <b style="font-size: 20px;">Enter the retailer name of the product : <input name="rettname" type="text" placeholder="retailer name" style="height: 30px;border-radius: 10px;" required/><br><br>
+                    <b style="font-size: 20px;">Quantity (per 1 if veggies  perkg's) : <input name="quanti" type="number" placeholder="quantity" style="height: 30px;border-radius: 10px;"><br>
+            <br><b style="font-size: 20px;"></b>Product belongs to :
+            <b style="font-size: 20px;"></b><input type="radio" id="veggies" name="bel" value="veggies">
+            <label for="veggies"><b style="font-size: 20px;"></b>Veggies</label>
+            <input type="radio" id="handloomm" name="bel" value="handloom">
+            <label for="handloomm"><b style="font-size: 20px;"></b>Handloom</label>
+            <input type="radio" id="pottreyy" name="bel" value="pottrey">
+            <label for="pottreyy"><b style="font-size: 20px;"></b>Pottrey</label><br><br>
+            <button class="btn" type="submit"><b style="font-size: 15px;"></b>add to orders list</button>
+        </form>
+    </div>
+    <br>
+    <h3>If ordered check status</h3>
+    <form action="/orderstat" method="post" align="center">
+        <input name="cus1" value="<%= Name %>" type="text" style="display: none;">
+        <button class="btn" type="submit" style="margin-bottom: 10px;">order status</button>
+    </form>
 
 </body>
 </html>
