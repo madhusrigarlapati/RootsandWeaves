@@ -43,7 +43,8 @@ router.post('/order',async (req,res)=>{
             custName:id,
             prodName:req.body.pronam,
             retName:req.body.rettname,
-            quantit:req.body.quanti
+            quantit:req.body.quanti,
+            role:req.body.bel
         }
         //console.log(UserJson);
         if(req.body.bel=="veggies"){
@@ -58,7 +59,7 @@ router.post('/order',async (req,res)=>{
             })
         }
         if(req.body.bel=="handloom"){
-            db.Yorders.insert(UserJson,function(err,docs){
+            db.orders.insert(UserJson,function(err,docs){
                 if(err){
                     console.log(err);
                 }
@@ -69,7 +70,7 @@ router.post('/order',async (req,res)=>{
             })
         }
         if(req.body.bel=="pottrey"){
-            db.Zorders.insert(UserJson,function(err,docs){
+            db.orders.insert(UserJson,function(err,docs){
                 if(err){
                     console.log(err);
                 }
@@ -238,9 +239,9 @@ router.post('/retSignIn1',async function(req,res){
                 })
 
             }
-            else{
-                res.send("No farmer details please sign up ");
-            }
+            // else{
+            //     res.send("No farmer details please sign up ");
+            // }
     })
         
 })
@@ -254,87 +255,70 @@ router.post('/accorders',async (req,res)=>{
     var test1=db.orders;
     var test2=db.accord;
     var test3=db.rejord;
-    let promiseOfFind = test.find({name:id3}).toArray((err, docs) => {
-        if(docs.length!=0){
-            console.log(docs);
-            for(var i=0;i<docs.length;i++){
+    var res1, a, a1, a2, a3;
+    let  promiseOfFind = test.find({name:id3}).toArray(async (err, docs) => {
+        if(await docs.length!=0){
+            for( var i=0;i<docs.length;i++){
                 if(docs[i].grname.l.prodname==id1){
-                    if(docs[i].grname.l.quantity>=id2){
-                        // docs[i].grname.l.quantity=docs[i].grname.l.quantity-id2;
-                        var a=docs[i].grname.l.quantity-id2;
-                        var a1=docs[i].grname.l.prodname;
-                        var a2=docs[i].grname.l.link;
-                        var a3=docs[i].grname.l.price;
-                        console.log(a);
-                        test.update({"name":id3},{$set:{grname:{l:{prodname:a1,quantity:a,link:a2,price:a3}}}})
-                        var user={
-                            custName:id4,
-                            prodName:id1,
-                            quantit:id2,
-                            retName:id3
-                        }
-                        test2.insert(user,function(err,docs){
-                            if(err){
-                                console.log(err);
-                            }
-                            else{
-                                console.log(docs);
-                            }
-                            test1.remove({custName:id4,prodName:id1,quantit:id2,retName:id3});
-                         })  
-                        res.send("Accepted order successfully")
-                    }
-                    // else if(docs[i].grname.l.quantity==id2){
-                    //     var a=docs[i].grname.l.quantity-id2;
-                    //     var a1=docs[i].grname.l.prodname;
-                    //     var a2=docs[i].grname.l.link;
-                    //     var a3=docs[i].grname.l.price;
-                    //     console.log(a);
-                    //     test.remove({name:id3,grname:{l:a1}})
-                    //     // test.update({"name":id3},{$set:{grname:{l:{prodname:a1,quantity:a,link:a2,price:a3}}}})
-                    //     var user={
-                    //         custName:id4,
-                    //         prodName:id1,
-                    //         quantit:id2,
-                    //         retName:id3
-                    //     }
-                    //     test2.insert(user,function(err,docs){
-                    //         if(err){
-                    //             console.log(err);
-                    //         }
-                    //         else{
-                    //             console.log(docs);
-                    //         }
-                    //         test1.remove({custName:id4,prodName:id1,quantit:id2,retName:id3});
-                    //     })  
-                    //     res.send("Accepted order successfully")
-                    // }
-                    else{
-                        var user={
-                            custName:id4,
-                            prodName:id1,
-                            quantit:id2,
-                            retName:id3
-                        }
-                        test3.insert(user,function(err,docs){
-                            if(err){
-                                console.log(err);
-                            }
-                            else{
-                                console.log(docs);
-                            }
-                            test1.remove({custName:id4,prodName:id1,quantit:id2,retName:id3});
-                         })
-                         res.send("rejected the order")
-                    }
+                    res1=docs[i]._id;
+                    a=docs[i].grname.l.quantity;
+                    a1=docs[i].grname.l.prodname;
+                    a2=docs[i].grname.l.link;
+                    a3=docs[i].grname.l.price;
                 }
-                console.log(docs[i].grname.l.quantity)
             }
-            console.log(docs);
-            
+            console.log(res1);
+            console.log(typeof a);
+            console.log(typeof id2);
 
+             if( await parseInt(a) >= parseInt(id2) ){
+                console.log(a)
+                console.log(typeof id2)
+                test.update({_id:res1},{$set:{name:id3,grname:{l:{prodname:a1,quantity:a-id2,link:a2,price:a3}}}})  
+                var user={
+                                    custName:id4,
+                                    prodName:id1,
+                                    quantit:id2,
+                                    retName:id3
+                                }
+                                test2.insert(user,async function(err,docs1){
+                                    if(err){
+                                        console.log(err);
+                                    }
+                                    else{
+                                        console.log(docs1);
+                                    }
+                                    await test1.remove({custName:id4,prodName:id1,quantit:id2,retName:id3});
+                                 })  
+                                 res.send("Accepted order successfully")
+            }
+            else if (await a<id2){
+                var user={
+                    custName:id4,
+                    prodName:id1,
+                    quantit:id2,
+                    retName:id3
+                }
+                await test3.insert(user,async function(err,docs1){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        console.log(docs1);
+                    }
+                   await  test1.remove({custName:id4,prodName:id1,quantit:id2,retName:id3});
+                    })
+                    res.send("rejected the order")
+            }
+            else{
+             res.send("sucess");}
         }
-    })
+            
+    
+         else{
+            res.send("hello")
+         }
+     })
 
 })
 router.post('/orderstat',async function(req,res){
@@ -345,9 +329,9 @@ router.post('/orderstat',async function(req,res){
     let promiseOfFind = test.find({custName:id1}).toArray((err, docs) => {
         console.log(docs);
         let ff = test1.find({custName:id1}).toArray((err, docs1) => {
-            console.log(docs1);
+            //console.log(docs1);
                 let ff1=test2.find({custName:id1}).toArray((err, docs2) => {
-                    console.log(docs2);
+                    //console.log(docs2);
                     res.render('orderstat',{accc:docs,rejj:docs1,pend:docs2})
                 })
         })
@@ -362,6 +346,7 @@ router.post('/orderstat',async function(req,res){
         console.log(id1);
         let test = db.Yretailer;
         let test1 = db.gros;
+        let test2=db.orders;
         //console.log(test);
         var l=new Array();
         let promiseOfFind = test.find({name:id1,password:pwd}).toArray((err, docs) => {
@@ -376,11 +361,11 @@ router.post('/orderstat',async function(req,res){
                         if(docs1.length==0){
                             s="no products added fill the form to add "
                         }
-    
+                        
                         //console.log(docs1);
-                        res.render('YretSignIn1',{Name:a1,phoneNo:a2,farmaddress:a3,l2:docs1,s:s});
-        
-    
+                        let f1= test2.find({retName:id1}).toArray((err,docs2)=>{
+                            res.render('YretSignIn1',{Name:a1,phoneNo:a2,farmaddress:a3,l2:docs1,s:s,l3:docs2});
+                        })
                     })
     
                 }
@@ -398,6 +383,7 @@ router.post('/orderstat',async function(req,res){
             //console.log(id1);
             let test = db.Zretailer;
             let test1 = db.gros;
+            let test2=db.orders;
             //console.log(test);
             var l=new Array();
             let promiseOfFind = test.find({name:id1,password:pwd}).toArray((err, docs) => {
@@ -414,8 +400,9 @@ router.post('/orderstat',async function(req,res){
                             }
         
                             //console.log(docs1);
-                            res.render('ZretSignIn1',{Name:a1,phoneNo:a2,farmaddress:a3,l2:docs1,s:s});
-            
+                            let f1= test2.find({retName:id1}).toArray((err,docs2)=>{
+                                res.render('ZretSignIn1',{Name:a1,phoneNo:a2,farmaddress:a3,l2:docs1,s:s,l3:docs2});
+                            })
         
                         })
         

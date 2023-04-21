@@ -134,8 +134,30 @@
 <% }); %>
     <%}%> -->
 
-    </div>
     
+    <br><br><hr>
+    <h1>Orders :</h1>
+        <% if(l3.length==0){%>
+            <h2 style="text-align: center;"> no products added</h2>
+        <%}%>
+        
+            <% if(l3.length!=0){%>
+                <% l3.forEach(function(l3) { %>
+                        <form action="/accorders" method="post">
+                        <div style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;"><%=l3.custName%></td>
+                        <div><%=l3.prodName%></div>
+                        <div><%=l3.quantit%></div>
+                        <input name="pp" value="<%=l3.prodName%>" style="display:none">
+                        <input name="qq" value="<%=l3.quantit%>" style="display:none">
+                        <input name="rr" value="<%=l3.retName%>" style="display:none">
+                        <input name="cc" value="<%=l3.custName%>" style="display:none">
+                        <div><button type="submit" class="btn">accept order</button></div>
+                        </div>
+                        </form>
+                <% }); %>
+            <%}%>
+        </div>
+
 </body>
 <script type="text/javascript">
 //     var ids = [];
