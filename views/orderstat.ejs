@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link rel ="stylesheet" href="bootstrap.min.css">
+<title>Document</title>
     <style>
         body{
             display: flex;
@@ -12,14 +14,33 @@
             justify-content: center;
             flex-direction: column;
             background-size: cover;
-            border:solid 5px darkgreen;
+            
             margin: 20px;
             border-radius: 20px;
-            background-color: rgb(178, 240, 193);
+            background-color: rgb(197, 193, 193)
             
         }
         #tableName{
-            width: 100%;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+             /* width:90%;  */
+            background-color: cornsilk;
+        }
+        .tasks{
+            /* width:100%; */
+            display: grid;
+            word-break: keep-all;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border:solid 1px black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+            /* padding-left: 20px;
+            padding-right: 20px; */
+            flex-direction: row;
+            justify-content: space-evenly;
         }
     .prods{
         width:100%; 
@@ -32,7 +53,7 @@
         background-color: green;
         color: white;
     }
-    #btn{
+    .btn{
         background-color:green;
         border: #3fd557;
         color: white;
@@ -42,83 +63,164 @@
         width:130px; 
         height:40px;
     }
+    .one{
+        display: grid;
+        grid-template-areas: 
+        'fdw fdm';
+    }
+    .fdw{
+        grid-area: fdw;
+        padding: 50px;
+    }
+    .fdm{
+        grid-area: fdm;
+        padding: 50px;
+    }
+    input::placeholder {
+                 /* Firefox, Chrome, Opera */
+                 text-align: center;
+    }
+    /* table.table { width: 100%; } */
+
+.table th, .table td { 
+  text-align: left; 
+  padding: 0.25em;
+}
+
+.table tr { 
+  border-bottom: 1px solid #DDD;
+}
+.ft1{
+    background-color:black;
+    color:white;
+    /* padding-top: 3px;
+    padding-bottom: 3px; */
+    border: solid black;
+    border-radius: 8px;
+}
+th{
+    color:black;
+
+}
+.ft2{
+    width: 80%;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+}
+.table{
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black;
+    border-radius: 10px;
+}
 
     </style>
 </head>
 <body>
-    <h1>your accepted orders</h1>
-    <div class="prods">
-            
-        <b>Product name</b>
-        <b>Quantity</b>
-        <b>retailer name</b>
-        <b>status</b>
-    </div>
-    <div id="tableName">
+    <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Accepted Orders</h1>
+    <center  style="width:95%">
+        <div class="ft2" align="center">
+            <!-- <hr style="border:solid 1px;" > -->
+            <!-- <div class="tasks"> -->
+            <table class="table" align="center">
+                
+               
+                <!-- </div> -->
+    
         <% if(accc.length==0){%>
-            <h3 align="center">no orders accepted</h3>
+            <h5 align="center">(No orders have been accepted.)</h5><br>
         <%}%>
+        <div>
 
         <% if(accc.length!=0){%>
+            <tr align="center" class="ft1"  style="height: 47px;" >
+                    
+                <th style="color:white;" ><b>Product Name</b></th>
+                <th style="color:white"><b>Quantity</b></th>
+                <th style="color:white"><b>Retailer Name</b></th>
+                <th style="color:white"><b>Status</b></th>
+            </tr>
             <% accc.forEach(function(accc) { %>
-                <div style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;">
-                <div><%=accc.prodName%></div>
-                <div><%=accc.quantit%></div>
-                <div><%=accc.retName%></div>
-                <div>Accepted</div>
-                </div>
+                <tr style="font-weight: bold;background-color: #f2ede6; color: black;">
+                <th><%=accc.prodName%></th>
+                <th><%=accc.quantit%></th>
+                <th><%=accc.retName%></th>
+                <th>Accepted</th>
+                </tr>
             <% }); %>
         <%}%>
-            </div><br>
+    </table>
+</div>
+</center>
+            <br>
 
-            <h1>your rejected orders</h1>
-            <div class="prods">
-            
-                <b>Product name</b>
-                <b>Quantity</b>
-                <b>retailer name</b>
-                <b>status</b>
-            </div>
-            <div id="tableName">
+            <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Rejected Orders</h1>
+            <center  style="width:95%">
+                <div class="ft2" align="center">
+                    <!-- <hr style="border:solid 1px;" > -->
+                    <!-- <div class="tasks"> -->
+                    <table class="table" align="center">
+                        
+                        
                 <% if(rejj.length==0){%>
-                    <h3 align="center">no orders rejected</h3>
+                    <h5 align="center">(No orders have been rejected.)</h5><br>
                 <%}%>
                 <% if(rejj.length!=0){%>
+                    <tr align="center" class="ft1"  style="height: 47px;" >
+                            
+                        <th style="color:white;" ><b>Product Name</b></th>
+                        <th style="color:white"><b>Quantity</b></th>
+                        <th style="color:white"><b>Retailer Name</b></th>
+                        <th style="color:white"><b>Status</b></th>
+                    </tr>
                     <% rejj.forEach(function(rejj) { %>
-                        <div  style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;">
-                        <div><%=rejj.prodName%></div>
-                        <div><%=rejj.quantit%></div>
-                        <div><%=rejj.retName%></div>
-                        <div>rejected due to less quantity</div>
-                        </div>
+                        <tr style="font-weight: bold;background-color: #f2ede6; color: black;">
+                        <th><%=rejj.prodName%></th>
+                        <th><%=rejj.quantit%></th>
+                        <th><%=rejj.retName%></th>
+                        <th>Rejected</th>
+                        </tr>
                     <% }); %>
                 <%}%>
-            </div>
-
-            <h1>your pending orders</h1>
-            <div class="prods">
             
-                <b>Product name</b>
-                <b>Quantity</b>
-                <b>retailer name</b>
-                <b>status</b>
-            </div>
-            <div id="tableName">
+        </table>
+    </div>
+    </center>
+            <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 40px;">Pending Orders</h1>
+            <center  style="width:95%">
+                <div class="ft2" align="center">
+                    <!-- <hr style="border:solid 1px;" > -->
+                    <!-- <div class="tasks"> -->
+                    <table class="table" align="center">
+                        
+                        
                 <% if(pend.length==0){%>
-                    <h3 align="center">no orders</h3>
+                    
+                    <h3 align="center">No Orders</h3>
                 <%}%>
                 <% if(pend.length!=0){%>
+                    <tr align="center" class="ft1"  style="height: 47px;" >
+                            
+                        <th style="color:white;" ><b>Product Name</b></th>
+                        <th style="color:white"><b>Quantity</b></th>
+                        <th style="color:white"><b>Retailer Name</b></th>
+                        <th style="color:white"><b>Status</b></th>
+                    </tr>
                     <% pend.forEach(function(pend) { %>
-                        <div  style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;">
-                        <div><%=pend.prodName%></div>
-                        <div><%=pend.quantit%></div>
-                        <div><%=pend.retName%></div>
-                        <div>pending</div>
-                        </div>
+                        <tr style="font-weight: bold;background-color: #f2ede6; color: black;">
+                        <th><%=pend.prodName%></th>
+                        <th><%=pend.quantit%></th>
+                        <th><%=pend.retName%></th>
+                        <th>pending</th>
+                        </tr>
                     <% }); %>
                 <%}%>
 
             </div>
-
+        </table>
+    </div>
+    </center>
 </body>
 </html>

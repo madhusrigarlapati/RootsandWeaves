@@ -5,6 +5,13 @@ const ejs=require('ejs');
 var mongojs = require('mongojs')
 var cString="mongodb+srv://madhu:madhu@cluster0.y34pj1v.mongodb.net/?retryWrites=true&w=majority"
 var db = mongojs(cString, ['customer','retailer','gros','Yretailer','Zretailer','orders','accord'])
+const flash = require("connect-flash");
+
+// app.use(flash());
+// app.use(function (request, response, next) {
+//   response.locals.messages = request.flash();
+//   next();
+// })
 
 router.post('/ccreate',async(req,res)=>{
     try{
@@ -290,7 +297,7 @@ router.post('/accorders',async (req,res)=>{
                                     }
                                     await test1.remove({custName:id4,prodName:id1,quantit:id2,retName:id3});
                                  })  
-                                 res.send("Accepted order successfully")
+                                 res.render("acc");
             }
             else if (await a<id2){
                 var user={
@@ -308,7 +315,7 @@ router.post('/accorders',async (req,res)=>{
                     }
                    await  test1.remove({custName:id4,prodName:id1,quantit:id2,retName:id3});
                     })
-                    res.send("rejected the order")
+                    res.render("rej");
             }
             else{
              res.send("sucess");}
@@ -437,7 +444,7 @@ router.post('/retSignIn2',async function(req,res){
                 }
                 else{
                     //console.log(docs2);
-                    res.send("successfully added details");
+                    res.render("retSignIn2");
                 }
             })
         // else{
@@ -483,7 +490,7 @@ router.post('/YretSignIn2',async function(req,res){
                 }
                 else{
                     //console.log(docs2);
-                    res.send("successfully added details");
+                    res.render("YretSignIn2");
                 }
             })
         })
@@ -510,7 +517,8 @@ router.post('/ZretSignIn2',async function(req,res){
                 }
                 else{
                     //console.log(docs2);
-                    res.send("successfully added details");
+                    //res.send("successfully added details");
+                    res.render("ZretSignIn2")
                 }
             })
         })
@@ -528,7 +536,7 @@ router.post("/delete",(req,res)=>{
                 //console.log(docs1[i]);
                 //console.log(d);
                 test1.remove({"_id": d});
-                res.render("delete");
+                res.render("del");
             }
             // console.log(docs1[i].grname.l.prodname);
         }
@@ -548,7 +556,7 @@ router.post("/Ydelete",(req,res)=>{
                 //console.log(docs1[i]);
                 //console.log(d);
                 test1.remove({"_id": d});
-                res.render("Ydelete");
+                res.render("Ydel");
             }
             // console.log(docs1[i].grname.l.prodname);
         }
@@ -569,7 +577,7 @@ router.post("/Zdelete",(req,res)=>{
                 //console.log(docs1[i]);
                 //console.log(d);
                 test1.remove({"_id": d});
-                res.render("Zdelete");
+                res.render("Zdel");
             }
             // console.log(docs1[i].grname.l.prodname);
         }

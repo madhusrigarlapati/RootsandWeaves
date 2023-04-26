@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link rel ="stylesheet" href="bootstrap.min.css">
     <title>Document</title>
     <style>
         body{
@@ -12,13 +14,36 @@
             justify-content: center;
             flex-direction: column;
             background-size: cover;
-            border:solid 5px  rgba(240, 23, 23, 0.861);
+            border:solid 5px  rgba(59, 57, 57, 0.861);
             margin: 20px;
+            color: white;
             border-radius: 20px;
-            background-color: rgb(241, 204, 204);
-            
-        }
+            /* background-color: rgb(241, 204, 204); */
+            background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url("hhh3.jpg");
 
+        }
+        #tableName{
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+             /* width:90%;  */
+            background-color: cornsilk;
+        }
+        .tasks{
+            /* width:100%; */
+            display: grid;
+            word-break: keep-all;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border:solid 1px black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+            /* padding-left: 20px;
+            padding-right: 20px; */
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
     .prods{
         width:100%; 
         display: flex;
@@ -30,9 +55,11 @@
         background-color:  rgba(240, 23, 23, 0.861);
         color: white;
     }
-    #btn{
-        background-color:  rgba(240, 23, 23, 0.861);
+    .btn{
+        background-color: rgba(59, 57, 57, 0.861) ;
+        border: #3fd557;
         color: white;
+        border-radius: 30px;
     }
     button{
         border-radius: 25px;
@@ -56,6 +83,35 @@
                  /* Firefox, Chrome, Opera */
                  text-align: center;
     }
+    .table th, .table td { 
+  text-align: left; 
+  padding: 0.25em;
+}
+
+.table tr { 
+  border-bottom: 1px solid #DDD;
+}
+.ft1{
+    background-color: rgba(59, 57, 57, 0.861);
+    color:white;
+    /* padding-top: 3px;
+    padding-bottom: 3px; */
+}
+th{
+    color:black;
+
+}
+.ft2{
+    width: 80%;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+}
+.table{
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
     </style>
 </head>
 <body>
@@ -64,64 +120,101 @@
             <img src="hloom.jpg" style="border-radius: 20px;">
         </div>
         <div class="fdm">
-    <h1> Handloom Details </h1>
-    <h2> Name:<%= Name%></h2>
-    <h2> PhoneNumber:<%=phoneNo %></h2>
-    <h2> Farm address:<%=farmaddress %></h2>
+    <h2><u>Handloom Details </u></h2>
+    <h3> Name : <%= Name%></h3>
+    <h3> PhoneNumber : <%=phoneNo %></h3>
+    <h3> Farm address : <%=farmaddress %></h3>
 </div>
 <br><br>
-    
-    
-    <br><br>
+  
 </div>
 <div>
-<hr style="border:solid 1px rgba(240, 23, 23, 0.861);">
+    <center>
+        <form  action="/YretSignIn2" method="post" >
+  
+            <input name="f11name" type="text" value="<%=Name%>" style="display:none; text-align: center;"  >
+            
+  <table>
+    <tr>
+      <td style="padding-right: 10%;"><div class="form-outline mb-4">
+        <input type="text" name="gname" id="form2Example17" class="form-control form-control-lg" />
+        <label class="form-label" for="form2Example17">Product Name</label>
+      </div></td>
+      <td class="emp"></td>
+      <td style="padding-right: 10%;"><div class="form-outline mb-4">
+        <input type="text" name="photo" id="form2Example17" class="form-control form-control-lg" />
+        <label class="form-label" for="form2Example17">Product Image link</label>
+      </div></td>
+    </tr>
+    <tr>
+      <td style="padding-right: 10%;"> <div class="form-outline mb-4">
+        <input type="text" name="quant" id="form2Example17" class="form-control form-control-lg" />
+        <label class="form-label" for="form2Example17">Number of Items</label>
+      </div></td>
+      <td class="emp"></td>
+      <td style="padding-right: 10%;"> <div class="form-outline mb-4">
+        <input type="text"  name="price" id="form2Example17" class="form-control form-control-lg" />
+        <label class="form-label" for="form2Example17">Price per item</label>
+      </div></td>
+    </tr>
+  </table>
+          
+  <br>
+      <button type="submit" onclick="addd()" class="btn btn-primary btn-block mb-4">Add to the list</button>
+    </form> 
+</center>
+</div>
+<!-- <hr style="border:solid 1px rgba(240, 23, 23, 0.861);">
     <form action="/YretSignIn2" method="post" align="center">
         <input name="f11name" type="text" value="<%=Name%>" style="display:none; text-align: center;" >&nbsp;&nbsp;
-        <b style="font-size: 15px;">Enter product name:</b> <input name="gname" type="text" placeholder="Enter your name" required style="height: 30px;border-radius: 10px;"/>&nbsp;&nbsp;
-        <b style="font-size: 15px;">Link of the product image(Optional):</b><input name="photo" type="text"style="height: 30px;border-radius: 10px;"/>&nbsp;&nbsp;
-        <b style="font-size: 15px;">Quantity per one:</b><input name="quant" type="number" placeholder="per one" style="height: 30px;border-radius: 10px;" required/>&nbsp;&nbsp;
-        <b style="font-size: 15px;">Price :</b><input name="price" type="number" placeholder="in rupees per one" style="height: 30px;border-radius: 10px;" required/><br>
+        <b style="font-size: 15px;">Enter product name:</b>
+         <input name="gname" type="text" placeholder="Enter your name" required style="height: 30px;border-radius: 10px;"/>&nbsp;&nbsp;
+        <b style="font-size: 15px;">Link of the product image(Optional):</b>
+        <input name="photo" type="text"style="height: 30px;border-radius: 10px;"/>&nbsp;&nbsp;
+        <b style="font-size: 15px;">Quantity per one:</b>
+        <input name="quant" type="number" placeholder="per one" style="height: 30px;border-radius: 10px;" required/>&nbsp;&nbsp;
+        <b style="font-size: 15px;">Price :</b>
+        <input name="price" type="number" placeholder="in rupees per one" style="height: 30px;border-radius: 10px;" required/><br>
         <button type="submit" id="btn" onclick="addd()" style="align-self: center; margin-top: 20px;border-radius: 10px;"><b>add</b></button><br><br><br>
         <hr style="border:solid 1px  rgba(240, 23, 23, 0.861);">
         
-    </form>
-
-    <form action="/Ydelete" method="post" align="center">
-        <input name="f22name" type="text" value="<%=Name%>" style="display:none">
-        <h2> To remove the products please enter the name of the product and click on Delete button.</h2>
-        <input name="delname2" type="text" placeholder="name of the product to remove" style= "height:30px;border-radius:10px;width:370px;" required/>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit">Delete</button><br><br><br>
-    </form>
-
-            <div class="prods" >
-                <b> Product name</b>
-                <b>image link</b> 
-                <b>Quantity</b>
-                <b>price</b>
+    </form> -->
+    <h3><u style="color: white;"><b>Items Available</b></u></h3>
+    <center  style="width:95%">
+        <div class="ft2" align="center">
+        <!-- <hr style="border:solid 1px;" > -->
+        <!-- <div class="tasks"> -->
+            <table class="table" align="center">
+            
                 
-            </div>
-   
     
 
     <% if(l2.length==0){%>
-        <h2 style="text-align: center;"> no products added</h2>
+        <h2 style="text-align: center;"> Sorry,no orders available!</h2>
     <%}%>
     
-    <div id="tableName">
+    <div>
         
     <% if(l2.length!=0){%>
-        <% l2.forEach(function(l2) { %>
-            <div id="<%=l2.grname.l.prodname%>" style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;">
-            <div><%=l2.grname.l.prodname%></div>
-            <div><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></div>
-            <div><%=l2.grname.l.quantity%></div>
-            <div><%=l2.grname.l.price%></div>
+        <tr align="center" class="ft1"  >
+            <th style="color:white"><b>Product name</b></th>
+            <th style="color:white"><b>image link</b></th>
+            <th style="color:white"><b>Quantity</b></th>
+            <th style="color:white"><b>price</b></th>
+        </tr>
 
-            </div>
+        <% l2.forEach(function(l2) { %>
+            <tr id="<%=l2.grname.l.prodname%>" style="font-weight: bold;align-items: center; background-color: #f2ede6; color: black;padding-top: 20px;">
+                <th><%=l2.grname.l.prodname%></th>
+                <th><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></th>
+                <th><%=l2.grname.l.quantity%></th>
+                <th><%=l2.grname.l.price%></th>
+            </tr>
         <% }); %>
     <%}%>
-        </div>
+        </table>
+    </div>
+    </center>
     <!-- <% if(l2.length!=0){%>
         <% l2.forEach(function(l2) { %>
 <form >
@@ -135,28 +228,53 @@
     <%}%> -->
 
     
-    <br><br><hr>
-    <h1>Orders :</h1>
+    <br><hr>
+    <h3 > <b><u>My Orders </u></b> </h3><br>
+    <center style="width:95%">
+        <div class="ft2" align="center">
+            <table class="table" align="center">
+                    
+                
         <% if(l3.length==0){%>
-            <h2 style="text-align: center;"> no products added</h2>
+            <h2 style="text-align: center;"> Sorry,no orders available!</h2>
         <%}%>
         
             <% if(l3.length!=0){%>
+                <tr align="center" class="ft1"  >
+                    <th style="color:white"><b>Customer Name</b></th>
+                    <th style="color:white"><b>Product Name</b></th>
+                    <th style="color:white"><b>Quantity Ordered</b></th>
+                    <th style="color:white"><b>Accept Order</b></th>
+                </tr>
                 <% l3.forEach(function(l3) { %>
+                    <tr style="font-weight: bold; background-color: #f2ede6; color: black;">
                         <form action="/accorders" method="post">
-                        <div style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;"><%=l3.custName%></td>
-                        <div><%=l3.prodName%></div>
-                        <div><%=l3.quantit%></div>
+                        <th style="font-weight: bold;align-items: center;"><%=l3.custName%></th>
+                        <th><%=l3.prodName%></th>
+                        <th><%=l3.quantit%></th>
                         <input name="pp" value="<%=l3.prodName%>" style="display:none">
                         <input name="qq" value="<%=l3.quantit%>" style="display:none">
                         <input name="rr" value="<%=l3.retName%>" style="display:none">
                         <input name="cc" value="<%=l3.custName%>" style="display:none">
-                        <div><button type="submit" class="btn">accept order</button></div>
-                        </div>
+                        <th><button type="submit" class="btn">accept order</button></th>
                         </form>
+                    </tr>
                 <% }); %>
             <%}%>
-        </div>
+        </table>
+    </div>
+        </center>
+        <br>
+    <hr>
+    <br>
+
+            <form action="/Ydelete" method="post" align="center">
+                <input name="f22name" type="text" value="<%=Name%>" style="display:none">
+                <h3><b><u> Delete Item</u> </b> </h3><br>
+                <input name="delname2" type="text" placeholder="name of the product to remove" style= "height:30px;border-radius:10px;width:370px;" required/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="submit">Delete</button><br><br><br>
+            </form>
+        
 
 </body>
 <script type="text/javascript">

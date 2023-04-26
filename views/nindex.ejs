@@ -3,27 +3,222 @@
     <head>
         <link rel="stylesheet" href="nhome.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">  
         <style>
             .bt1{
-                background-color: brown; 
-                color: white;
+                background-color: white; 
+                color:green;
                 border: none;
+                font-size: 15px;
             }
-            .bt1:hover{
-                background-color: white;
-                color: brown;
-            }
+
+
+    
+    
+
+#busin{
+    background-color:grey;
+    height: 97vh;
+}
+    
+
+
+#busin h2 {
+	font-family: 'Bebas Neue', cursive;
+	
+	text-align: center;
+	margin: 40px 0 -50px;
+	
+	background-image: url(img/border.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+.carousel{
+    height: 600px; 
+    perspective: 200px;
+}
+.carousel .carousel-item{
+	width: 440px;
+	height: 400px;
+}
+.card1.card2.card3{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	max-width: 500px;
+	margin: auto;
+	text-align: center;
+	border-radius: 10px;
+	height: 300px;
+	align-items: center;
+    
+    
+  }
+  .card1{
+    background-image:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url("veggie.jpg");
+    color: white;
+    background-size: cover;
+    padding-bottom: 30px;
+    padding-top: 40px;
+    height: 300px;
+    align-self: center;
+  }
+  .card2{
+    background-image:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url("handloom.jpg");
+    color: white;
+    padding-top: 40px;
+    background-size: cover;
+    padding-bottom: 30px;
+    height: 300px;
+    align-self: center;
+  }
+  .card3{
+    background-image:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url("pottery.jpg");
+    color: white;
+    padding-top: 40px;
+    background-size: cover;
+    padding-bottom: 30px;
+    height: 300px;
+    align-self: center;
+  }
+.img-area{
+	border-radius: 10px 10px 0 0;
+	height: 200px;
+	background-size: cover;
+	background-position: center center;
+}
+busin,h4 {
+	font-size: 35px;
+	line-height: 1.5;
+	margin: 15px 0;
+	font-family: 'Bebas Neue', cursive;
+}
+.card p{
+	font-size: 17px;
+}
+
+.container {
+  padding: 2px 6px;
+}
+
+
+
+
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  color: #2e2d31;
+  background: #131313;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.temporary_text {
+  font-weight: bold;
+  font-size: 24px;
+  padding: 6px 20px;
+  color: #f8f8f8;
+}
+
+.card_title {
+  font-weight: bold;
+}
+
+.card_content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+    /* edit the width to fit card */
+  width: 100%;
+  padding: 20px;
+  background: #f2f2f2;
+  border-top-left-radius: 20px;
+    /* edit here to change the height of the content box */
+  transform: translateY(150px);
+  transition: transform .25s;
+}
+
+.card_content::before {
+  content: '';
+  position: absolute;
+  top: -47px;
+  right: -45px;
+  width: 100px;
+  height: 100px;
+  transform: rotate(-175deg);
+  border-radius: 50%;
+  box-shadow: inset 48px 48px #f2f2f2;
+}
+
+.card_title {
+  color: #131313;
+  line-height: 25px;
+}
+
+.card_subtitle {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.card_description {
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.card:hover .card_content {
+  transform: translateY(0);
+}
+
+.card:hover .card_description {
+  opacity: 1;
+  transition-delay: .25s;
+}
+.hap_customer{
+  display: grid;
+  grid-template-areas: 
+  'hcard1 hcard2 hcard3';
+  grid-gap:10px;
+  justify-content:space-evenly;
+  
+  
+}
+.hcard1{
+  grid-area: hcard1;
+}
+.hcard2{
+  grid-area: hcard2;
+}
+.hcard3{
+  grid-area: hcard3;
+}
+.overall h4{
+    padding-bottom: 2px;
+}
+#overall{
+    background-color: rgba(24, 24, 24, 0.987);
+    margin-top: 0px;
+    padding-top: 1px;
+    padding-bottom: 100px;
+    
+}
+
+    
+            
         </style>
     </head>
         
     <body>
         <div class="nav">
-            <div><p>Home</p></div>
-            <div><p>About</p></div>
-            <div><p>Happy Customers</p></div>
-            <div><p>Contact us</p></div>
+            <div><p><a href="#busin" style="color: darkgreen;">Home</a></p></div>
+            <div><p><a href="#ab" style="color: darkgreen;">About</a></p></div>
+            <div><p><a href="#overall" style="color: darkgreen;">Happy Customers</a></p></div>
+            <div><p><a href="#a" style="color: darkgreen;">Contact us</a></p></div>
             <div ><p><a href="custindex">
-            <button name="login" type="submit" class="bt1"><b>Customer Signup / Signin</b> </button></a>
+            <button name="login" type="submit" class="bt1" style="font-size: 20px;"><b>Customer Signup / Signin</b> </button></a>
 
                 <!-- <button name="login" type="submit" class="bt1" style="background-color: brown; color: white;border: none;"><b>Customer Signup / Signin</b> </button></a> -->
             </p></div>
@@ -31,86 +226,147 @@
             
             
         </div>
-        <div class="busi">
-            <div class="farm">
-                <h3 style="text-align: center;">FARMING</h3>
-                <img src="veggie.jpg" height="200px" width="230px"  class="center"><br>
-                <p>Avail the products that are 100% organic <br>directly from the farms. </p><br>
-                <div class="btns"><a href="login"><button type="submit" style="height: 30px;width: 100px;">Login</button></a></div>
-            </div>
-            <div class="handl">
-                <h3 style="text-align: center;">HANDLOOM</h3>
-                <img src="handloom.jpg" height="200px" width="200px"  class="center"><br>
-                <p>We weave stories and emotions into &nbsp &nbsp<br>intricate designs.</p><br>
-                <div class="btns"><a href="Ylogin"><button type="submit" style="height: 30px;width: 100px;">Login</button></a></div>
-            </div>
-            <div class="pot">
-                <h3 style="text-align: center;">POTTERY</h3>
-                <img src="pottery.jpg"  height="200px" width="200px"  class="center"><br>
-                <p>We weave stories and emotions into <br>intricate designs.</p><br>
-                <div class="btns"><a href="Zlogin"><button type="submit" style="height: 30px;width: 100px;">Login</button></a></div>
-            </div>
-        </div>
-        <div class="ab">
-            <h1 style="text-align: center;"> ABOUT</h1>
-            <h4 style="text-align: center;" >Roots and Weaves is a long established place where you can find the quality services.</h4><br>
-            You have come to the right place. Selling site is your one stop solution. You can find various products here with 100% quality assurance. The businesses we support include Vegetables,fruits,dryfruits and what not. All the customers get your healthy food ordered today and all the retailers join the taste of technology to your quality service. The Selling site connects you both.<br><br>
+        
+        <div id="ab">
+            <img src="iii1.jpg">
+            <div class="new_ab">
+            <h3 style="font-size: 40px;font-family: 'Times New Roman', Times, serif;"> ROOTS AND WEAVES</h3><br>
+            <h5 style="font-size: 20px;">Roots and Weaves is a long established place where you can find the quality services.</h5><br>
+            You have come to the right place.Roots and Weaves is your one stop solution. You can find various products here with 100% quality assurance. The businesses we support include Vegetables,fruits,dryfruits and what not. All the customers get your healthy food ordered today and all the retailers join the taste of technology to your quality service. The Selling site connects you both.<br><br>
             Join Roots and Weaves today.  
-        </div>
-        <h1 style="text-align: center">Happy Customers</h1><br>
-        <div class="hap-cus">
-            <div class="hap1">
-                <img src="c1.jfif" style="border-radius: 50%; height: 130px;width: 150px;"><br>
-                <h4> Venkateswararo</h4>
-                <h4>(Customer)</h4>
-                Selling site helped me by gettting essestials to my doorstep thus saving a lot of time.<br>
-                Thank you Selling site.
-            </div>
-            <div class="hap2">
-                <img src="r1.jpg" style="border-radius: 50%; height: 130px;width: 150px;"><br>
-                <h4>Janaki</h4>
-                <h4>(Retailer)</h4>
-                Selling site helped me by connecting to my customers online.<br>
-                Thank you Selling site.
-            </div>
-            <div class="hap3">
-                <img src="r2.jpg" style="border-radius: 50%; height: 130px;width: 150px;"><br>
-                <h4>Lakshmi</h4>
-                <h4>(Retailer)</h4>
-                Happy to be a part of selling site. Selling site helped me by increasing my network.<br>
-                Thank you Selling site.
             </div>
         </div>
 
-        <h2 style="text-align: center;color: brown;">Contact Us</h2><br>
-        <div class="contact-us" style="text-align: center;">
-            <div class="con1">
-                <b>Name : </b> <input type="text" placeholder="Enter your name"><br><br>
-                <b> Gender   : </b> <input type="radio"> Female <input type="radio"> Male <input type="radio"> Prefer not to say<br><br>
-                <b>Phone Number : </b><input type="tel"><br><br>
-                <b> Email    : </b><input type="email"><br><br>
-                <b>Description : </b><input type="textarea" style="height:120px; width: 400px;"><br><br>
-                <button type="submit" style="height: 30px;width: 130px;">Submit</button>
-            </div>
-            <div class="con2">
-                <h2>Our Address</h2>
-                &nbsp &nbsp  Vishnu Institute of Technology<br>
-                &nbsp &nbsp Vishnupur<br>
-                &nbsp &nbsp Bhimavaram <br>
-                &nbsp &nbsp India<br>
-                &#9990;  9876543210<br>
-                &#9993; abcd@vishnu.edu.in<br><br>
 
-                &nbsp &nbspflot no:202 , Suvarna Towers<br>
-                &nbsp Bandaru vari street<br>
-                &nbsp Tadepalligudem<br>
-                &nbsp India<br>
-                &#9990; 9807654231<br>
-                &#9993; rew@vishnu.edu.in
 
-            </div>
-        </div>
-		<div class="footer">
+    <div id="busin" style="margin-top: 0px;padding-top: 1px;">
+    <h2 style="color: white;padding-top: 20px;">OUR BUSINESSES</h2>
+  
+	<div class="carousel">
+		<div class="carousel-item">
+			<div class="card1">
+				
+				<div class="container">
+					<h4>Farming</h4>
+					<p style="color: white;"><i>Avail the products that are 100% organic <br>directly from the farms. </i></p>
+					<button class="btn"><a href="login" style="color: white;">Login</a></button>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<div class="card2">
+				
+				<div class="container">
+					<h4>Handloom</h4>
+					<p style="color: white;"><i>We weave stories and emotions into &nbsp &nbsp<br>intricate designs.</i></p>
+					<button class="btn"><a href="Ylogin" style="color: white;">Login</a></button>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<div class="card3">
+				
+				<div class="container">
+					<h4><b>Pottery</b></h4>
+					<p style="color: white;"><i>We weave stories and emotions into <br>intricate designs.</i></p>
+					<button class="btn"><a href="Zlogin" style="color: white;">Login</a></button>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.carousel').carousel({
+			padding: 200
+	});
+	autoplay();
+	function autoplay() {
+		$('.carousel').carousel('next');
+		setTimeout(autoplay, 4500);
+	}
+  });
+</script>
+</div>
+        
+
+
+<div id="overall">
+<h4 style="text-align: center;color: rgb(240, 234, 234);padding-top: 40px;">HAPPY CUSTOMERS</h4>
+  <div class="hap_customer">
+    
+    <div class="hcard1">
+    <article class="card">
+      <div class="temporary_text">
+          <img src="c1.jfif" style="height: 250px;width: 300px;align-self: auto;">      
+    </div>
+  <div class="card_content">
+      <span class="card_title"><h5>Venkateswararo</h5><h5>(Customer)</h5></span>
+          <span class="card_subtitle">This site helped me by gettting essestials to doorstep thus saving a lot of time..</span>
+          <p class="card_description">Thank you Roots and Weaves .</p>
+      
+  </div>
+  </article>
+</div>
+
+    <div class="hcard2">
+      <article class="card">
+      <div class="temporary_text">
+        <img src="r1.jpg" style="height: 250px;width: 300px;margin-top: 0%;"> 
+      </div>
+  <div class="card_content">
+      <span class="card_title"><h5>Janaki</h5><h5>(Retailer)</h5></span>
+          <span class="card_subtitle">Roots and Weaves helped me by connecting to my customers online.</span>
+          <p class="card_description">Thank you Roots and Weaves.</p>
+      
+  </div>
+  </article>
+</div>
+
+      <div class="hcard3">
+      <article class="card">
+      <div class="temporary_text">
+        <img src="r2.jpg" style="height: 250px;width: 300px;margin-top: 0%;"> 
+      </div>
+  <div class="card_content">
+      <span class="card_title"><h5>Lakshmi</h5><h5>(Retailer)</h5></span>
+          <span class="card_subtitle">Happy to be a part of Roots and Weaves.It helped me by increasing my network.<br></span>
+          <p class="card_description">Thank you Roots and Weaves..</p>
+      
+  </div>
+  </article>
+</div>
+</div>
+</div>
+<div id = "a">
+<h4 style="text-align: center; font-size: 30px;font-family: 'Times New Roman', Times, serif;color: aliceblue;"><b>CONTACT US</b></h4>
+<br>
+<div class="contact-us"  >
+<br>
+
+  <div class="con1">
+    <input type="text" placeholder="Enter your name" style="border: groove; width: 400px;height: 30px;border-radius: 15px;"><br>
+    <b>Name</b><br><br>
+    <input type="number" placeholder="Enter mobile number" style="border: groove; width: 400px;height: 30px;border-radius: 15px;"><br>
+    <b>Mobile number</b><br><br>
+    <input type="text" placeholder="Enter email" style="border: groove; width: 400px;height: 30px;border-radius: 15px;"><br>
+    <b>E-Mail</b><br><br>
+    <input type="text" placeholder="Enter description" style="border: groove; width: 400px;height: 80px;border-radius: 15px;"><br>
+    <b>Description</b><br><br>
+    <button type="submit" style="color: white;background-color: black; padding: 15px;border-radius: 50px;">Submit</button>
+
+  </div>
+
+  <div class="con2">
+    <img src="cont_img.jpg"  width="400px" style="height:100%">
+  </div>
+</div>
+</div> 
+
+		<div class="footer" style="font-size: 20px;">
 			<div class="copy">Copyright &#169; 2023 Roots and Weaves</div>
 			<div class="icons">
 				<a href="#" class="fa fa-facebook"></a>  

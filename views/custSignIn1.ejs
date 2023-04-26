@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link rel ="stylesheet" href="bootstrap.min.css">
     <title>Document</title>
     <style>
         body{
@@ -15,7 +17,12 @@
             border:solid 5px navy;
             margin: 20px;
             border-radius: 20px;
-            background-color: skyblue;
+            
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("cust4.jpg");
+	background-repeat:no-repeat;
+	background-position: center;
+	background-size: cover;
+ ;
             /* background-image: linear-gradient(45deg,green,lightgreen); */
             
         }
@@ -30,14 +37,45 @@
         justify-content:space-evenly; 
         background-color: navy;
         color: white;
+    }#tableName{
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+             /* width:90%;  */
+            background-color: cornsilk;
+        }
+        .tasks{
+            /* width:100%; */
+            display: grid;
+            word-break: keep-all;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border:solid 1px black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+            /* padding-left: 20px;
+            padding-right: 20px; */
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    .prods{
+        width:100%; 
+        display: flex;
+        word-break: keep-all;
+        flex-direction: row;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content:space-evenly; 
+        background-color:  rgba(240, 23, 23, 0.861);
+        color: white;
     }
-    #tableName{
-        width: 100%;
-    }
-    #btn{
+    .btn{
         background-color:navy;
         border: navy;
         color: white;
+        width: 170px;
+        height: 60px;
     }
     button{
         border-radius: 25px;
@@ -62,60 +100,97 @@
                  /* Firefox, Chrome, Opera */
                  text-align: center;
     }
+    .table th, .table td { 
+  text-align: left; 
+  padding: 0.25em;
+}
+
+.table tr { 
+  border-bottom: 1px solid #DDD;
+}
+.ft1{
+    background-color: rgba(59, 57, 57, 0.861);
+    color:white;
+    /* padding-top: 3px;
+    padding-bottom: 3px; */
+    
+}
+th{
+    color:black;
+
+}
+.ft2{
+    width: 80%;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+    
+}
+.table{
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
     </style>
 </head>
 <body>
     <div class="one">
         <div class="fdw">
-            <img src="custo.webp" style="border-radius: 20px;">
+            <img src="cust9.jpg" style="border-radius: 20px;height:300px;width:250px;">
         </div>
         <div class="fdm">
-    <h1>Customer Details </h1>
-    <h2><%= Name %></h2>
-    <h2> PhoneNumber:<%=phoneNo %></h2>
-    <h2> Address:<%=address %></h2>
+    <h1 style="color: white;font-family: 'Times New Roman', Times, serif;"><u>Customer Details</u></h1>
+    <h3 style="color: white;font-family: 'Times New Roman', Times, serif;">Name : <%= Name %></h3>
+    <h3 style="color: white;font-family: 'Times New Roman', Times, serif;"> Phone Number : <%=phoneNo %></h3>
+    <h3 style="color: white;font-family: 'Times New Roman', Times, serif;"> Address : <%=address %></h3>
             </div>
     <hr><br><br>
 
 </div>
-    <div style="width: 100%;">
-    
-            <div class="prods" >
-                <b> Retailer name</b>
-                <b> Product name</b>
-                <b> image link</b>
-                <b>Quantity</b>
-                <b>price</b>
+<h3><b><u>Items Available</u></b></h3>
+    <center  style="width:95%">
+        <div class="ft2" align="center">
+            <table class="table" align="center">
+
+            <tr align="center" class="ft1" style="height: 50px;"  >
+                <td> Retailer name</td>
+                <td>Product name</td>
+                <td> image link</td>
+                <td>Quantity</td>
+                <td>price</td>
                 
-            </div>
-        </div>
+            </tr>
+        
     
 
 
-    <div id="tableName">
+    <!-- <div id="tableName"> -->
         <% if(l2.length!=0){%>
             <% l2.forEach(function(l2) { %>
-                
-                <div style="display: flex;flex-direction: row ;justify-content:space-evenly;font-weight: bold;align-items: center;padding-top: 20px;"><%=l2.name%>
-                <div><%=l2.grname.l.prodname%></div>
-                <div><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></div>
-                <div><%=l2.grname.l.quantity%></div>
-                <div><%=l2.grname.l.price%></div>
-                </div>
+                <tr style="font-weight: bold;align-items: center; background-color: #f2ede6; color: black;padding-top: 20px;">
+                <td style="font-weight:bold;align-items: center;padding-top: 20px;"><%=l2.name%></td>
+                <td><%=l2.grname.l.prodname%></td>
+                <td><img src="<%=l2.grname.l.link%>" alt="<%=l2.grname.l.prodname%>" height="100px" width="100px"></td>
+                <td><%=l2.grname.l.quantity%></td>
+                <td><%=l2.grname.l.price%></td>
+                </tr>
             <% }); %>
         <%}%>
+        </table>
+    </div>
+    </center>
         <hr style="border:solid 1px;">
 
             </div>
 <br><br>
-    <div>
+    <div class = "a" style="color:white;border:solid;border-radius:20px;padding: 20px;">
         
-        <h1 style="text-align: center;">Order any Product </h1>
+        <h1 style="text-align: center;">Order any Product </h1><br><br>
         <form action="/order" method="post" align="center">
             <input name="cus" value="<%= Name %>" type="text" style="display: none;">
-            <b style="font-size: 20px;">Enter the product name : <input name="pronam" type="text" placeholder="product name" style="height: 30px;border-radius: 10px;" required/><br><br>
-                <b style="font-size: 20px;">Enter the retailer name of the product : <input name="rettname" type="text" placeholder="retailer name" style="height: 30px;border-radius: 10px;" required/><br><br>
-                    <b style="font-size: 20px;">Quantity (per 1 if veggies  perkg's) : <input name="quanti" type="number" placeholder="quantity" style="height: 30px;border-radius: 10px;"><br>
+            <b style="font-size: 20px;">Product name : <input name="pronam" type="text" placeholder="product name" style="height: 30px;border-radius: 10px;" required/><br><br>
+                <b style="font-size: 20px;">Retailer name  : <input name="rettname" type="text" placeholder="retailer name" style="height: 30px;border-radius: 10px;" required/><br><br>
+                    <b style="font-size: 20px;">Quantity : <input name="quanti" type="number" placeholder="quantity" style="height: 30px;border-radius: 10px;"><br>
             <br><b style="font-size: 20px;"></b>Product belongs to :
             <b style="font-size: 20px;"></b><input type="radio" id="veggies" name="bel" value="veggies">
             <label for="veggies"><b style="font-size: 20px;"></b>Veggies</label>
@@ -123,14 +198,14 @@
             <label for="handloomm"><b style="font-size: 20px;"></b>Handloom</label>
             <input type="radio" id="pottreyy" name="bel" value="pottrey">
             <label for="pottreyy"><b style="font-size: 20px;"></b>Pottrey</label><br><br>
-            <button class="btn" type="submit"><b style="font-size: 15px;"></b>add to orders list</button>
+            <button class="btn" type="submit"><b style="font-size: 15px;"></b>Add item</button>
         </form>
     </div>
     <br>
     <h3>If ordered check status</h3>
     <form action="/orderstat" method="post" align="center">
         <input name="cus1" value="<%= Name %>" type="text" style="display: none;">
-        <button class="btn" type="submit" style="margin-bottom: 10px;">order status</button>
+        <button class="btn" type="submit" style="margin-bottom: 10px;">Order status</button>
     </form>
 
 </body>

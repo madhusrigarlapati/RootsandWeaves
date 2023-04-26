@@ -1,0 +1,67 @@
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.9)),url("hhh2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover ;
+}
+
+form{
+    border: solid 1px black;
+    padding:20px;
+    border-radius: 10px;
+    background-color: white;
+}
+.loginpg1{
+    display: flex;
+    justify-content: space-around;
+    height:98vh;
+    align-items: center;
+}
+.loginpg2{
+  display: flex;
+  justify-content: space-around;
+  height:98vh;
+  align-items: center;
+}
+.one{
+    
+    width: 200px;
+    border-radius:20px;
+  }
+input{
+border:none;
+outline: none;
+}
+fieldset{
+border-radius: 10px;
+}
+.btn{
+  background-color: #e6d8d8;
+  color: black;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  border: 1px solid #656464;
+  }
+.firstpage{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  height:98vh;
+
+}
+
+.doct,.pt{
+  border:solid 2px black;
+  width:25%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+  border-radius: 15px;
+  background-color:#f3f7ce;
+  padding-top: 1%;
+  padding-bottom: 1%;
+
+}
