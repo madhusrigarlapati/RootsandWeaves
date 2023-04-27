@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
     <link rel ="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 
     <title>Document</title>
     <style>
@@ -20,7 +21,7 @@
             border-radius: 20px;
             color: white;
             /* background-color: #eac1a0; */
-            background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url("ppp5.jpg");
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("ppp9.jpeg");
 
         }
         #tableName{
@@ -122,11 +123,11 @@ th{
             <img src="pott.jpg" style="border-radius: 20px; height: 300px;width: 400px;">
         </div>
         <div class="fdm">
-    <h2> <u><b>Potter Details</b></u> </h2>
-    <h3> Name : <%= Name%></h3>
-    <h3> PhoneNumber : <%=phoneNo %></h3>
-    <h3> Farm address : <%=farmaddress %></h3>
-</div>
+            <h1 style="font-size: 45px;font-family: 'Sofia', sans-serif;"> Potter Details</h1>
+            <div style="font-size: 30px;font-family: 'Times New Roman', Times, serif;"> &nbsp;&nbsp; Name: <span style="font-family: 'Sofia', sans-serif;"> <%= Name%></span></div>
+            <div style="font-size: 30px;font-family: 'Times New Roman', Times, serif;"> &nbsp;&nbsp; Phone Number: <span style=" font-family: 'Sofia', sans-serif;"> <%=phoneNo %></span></div>
+                <div style="font-size: 30px;font-family: 'Times New Roman', Times, serif;">&nbsp;&nbsp; Farm address: <span style=" font-family: 'Sofia', sans-serif;"> <%=farmaddress %></span></div>
+        </div>
 <br><br>
 
     </div>
