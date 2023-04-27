@@ -246,9 +246,9 @@ router.post('/retSignIn1',async function(req,res){
                 })
 
             }
-            // else{
-            //     res.send("No farmer details please sign up ");
-            // }
+            else{
+                res.send("No farmer details please sign up ");
+            }
     })
         
 })

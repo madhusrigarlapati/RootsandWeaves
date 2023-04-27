@@ -229,14 +229,14 @@ th{
 
     
     <br><hr>
-    <h3 > <b><u>My Orders </u></b> </h3><br>
+    <h3 > <u>Orders Recieved</u></h3><br>
     <center style="width:95%">
         <div class="ft2" align="center">
             <table class="table" align="center">
                     
                 
         <% if(l3.length==0){%>
-            <h2 style="text-align: center;"> Sorry,no orders available!</h2>
+            <h2 style="text-align: center;"> Sorry,No orders recieved!!</h2>
         <%}%>
         
             <% if(l3.length!=0){%>
@@ -249,7 +249,7 @@ th{
                 <% l3.forEach(function(l3) { %>
                     <tr style="font-weight: bold; background-color: #f2ede6; color: black;">
                         <form action="/accorders" method="post">
-                        <th style="font-weight: bold;align-items: center;"><%=l3.custName%></th>
+                        <th ><%=l3.custName%></th>
                         <th><%=l3.prodName%></th>
                         <th><%=l3.quantit%></th>
                         <input name="pp" value="<%=l3.prodName%>" style="display:none">
